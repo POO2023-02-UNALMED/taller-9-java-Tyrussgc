@@ -157,6 +157,36 @@ public class Calculator extends VBox implements EventHandler<ActionEvent>{
 		else {
 			displayText.setText(number1+ number2);
 		}
+        //Operaciones.
+		if (value.equals("=") && !(number1.isEmpty()) && !(number2.isEmpty()) && operator!= null){
+			int number1int = Integer.parseInt(number1);
+			int number2int = Integer.parseInt(number2);
+			if (operator.equals("+")){
+				int operacion1 = number1int+number2int;
+				displayText.setText(Integer.toString(operacion1));
+			}
+			else if (operator.equals("-")){
+				int operacion2 = number1int-number2int;
+				displayText.setText(Integer.toString(operacion2));
+			}
+			else if (operator.equals("*")){
+				int operacion3 = number1int*number2int;
+				displayText.setText(Integer.toString(operacion3));
+			}
+			else if (operator.equals("/")){
+
+				if (number2int == 0){
+					displayText.setText("No puedes dividir entre cero");
+				}
+				else {
+					int operacion4 = number1int/number2int;
+					displayText.setText(Integer.toString(operacion4));
+				}
+			}
+			number1 = "";
+			number2 = "";
+			operator = null;
+
 		}
 	}
 
